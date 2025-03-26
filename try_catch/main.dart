@@ -1,29 +1,29 @@
 void main() {
   try {
-    breedMoreLlamas();
-  } on OutOfLlamasException {
-    // A specific exception
-    buyMoreLlamas();
+    prepararCafe();
+  } on SinCafeException {
+    // Excepción específica
+    comprarMasCafe();
   } on Exception catch (e) {
-    // Anything else that is an exception
-    print('Unknown exception: $e');
+    // Cualquier otra excepción
+    print('Excepción desconocida: $e');
   } catch (e) {
-    // No specified type, handles all
-    print('Something really unknown: $e');
+    // No se especificó el tipo, maneja cualquier error
+    print('Algo completamente inesperado: $e');
   }
 }
 
-void buyMoreLlamas() {
-  print('Bought more llamas');
+void comprarMasCafe() {
+  print('Se compró más café.');
 }
 
-void breedMoreLlamas() {
-  print('Breeding more llamas');
-  throw OutOfLlamasException();
-  // throw Exception('Out of llamas');
+void prepararCafe() {
+  print('Preparando café...');
+  throw SinCafeException();
+    // throw Exception('¡Error al preparar café!');
   // throw Error();
 }
 
-class OutOfLlamasException implements Exception {
-  String errMsg() => 'Out of llamas!';
+class SinCafeException implements Exception {
+  String mensajeError() => '¡No queda café!';
 }
