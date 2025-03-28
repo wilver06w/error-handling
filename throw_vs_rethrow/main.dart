@@ -1,20 +1,21 @@
-void misbehave() {
+void doSomething() {
   try {
     dynamic foo = true;
-    print(foo++); // Runtime error
+    print(foo++); // Error en tiempo de ejecución
   } catch (e, stacktrace) {
     print(
-        'misbehave() partially handled ${e.runtimeType}. StackTrace: $stacktrace');
+        'doSomething() manejó parcialmente el error de tipo ${e.runtimeType} y el StackTrace: $stacktrace');
     // rethrow;
-    throw(e);
+    throw (e);
     // throw(e, stacktrace);
   }
 }
 
 void main() {
   try {
-    misbehave();
+    doSomething();
   } catch (e, stacktrace) {
-    print('main() finished handling ${e.runtimeType}. StackTrace: $stacktrace');
+    print(
+        'main() terminó de manejar el error de tipo ${e.runtimeType} y el StackTrace: $stacktrace');
   }
 }
