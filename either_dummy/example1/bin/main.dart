@@ -10,7 +10,7 @@ Either<String, int> parseInt(String input) {
 }
 
 void main() {
-  final response = parseInt("100");
+  final response = parseInt("abc");
 
   response.fold(
     (error) => print("❌ Error: $error"),
