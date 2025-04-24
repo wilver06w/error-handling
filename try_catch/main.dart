@@ -9,7 +9,7 @@ void main() {
     print('Excepción desconocida: $e');
   } catch (e) {
     // No se especificó el tipo, maneja cualquier error
-    print('Algo completamente inesperado: $e');
+    print('Algo completamente inesperado: ${e.runtimeType}');
   }
 }
 
@@ -20,7 +20,7 @@ void comprarMasCafe() {
 void prepararCafe() {
   print('Preparando café...');
   throw SinCafeException();
-    // throw Exception('¡Error al preparar café!');
+  // throw Exception('¡Error al preparar café!');
   // throw Error();
 }
 
